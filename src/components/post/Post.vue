@@ -13,7 +13,6 @@
 <script>
 import { server } from "../../utils/helper";
 import axios from "axios";
-import router from "../../router";
 export default {
   data() {
     return {
@@ -28,11 +27,11 @@ export default {
   methods: {
     getPost() {
       axios
-        .get(`${server.baseURL}/blog/post/${this.id}`)
+        .get(`${server.baseURL}/post/query/${this.id}`)
         .then(data => (this.post = data.data));
     },
     navigate() {
-      router.go(-1);
+      this.$router.go(-1);
     }
   }
 };

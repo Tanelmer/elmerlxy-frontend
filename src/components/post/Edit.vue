@@ -64,7 +64,6 @@
 <script>
 import { server } from '../../utils/helper';
 import axios from 'axios';
-import router from '../../router';
 export default {
   data() {
     return {
@@ -87,18 +86,18 @@ export default {
       };
 
       axios
-        .put(`${server.baseURL}/blog/edit?postID=${this.id}`, postData)
+        .put(`${server.baseURL}/post/edit?postID=${this.id}`, postData)
         .then(() => {
-          router.push({ name: 'home' });
+          this.$router.push({ name: 'home' });
         });
     },
     getPost() {
       axios
-        .get(`${server.baseURL}/blog/post/${this.id}`)
+        .get(`${server.baseURL}/post/query/${this.id}`)
         .then(data => (this.post = data.data));
     },
     navigate() {
-      router.go(-1);
+      this.$router.go(-1);
     },
   },
 };

@@ -67,11 +67,11 @@ export default {
   methods: {
     fetchPosts() {
       axios
-        .get(`${server.baseURL}/blog/posts`)
+        .get(`${server.baseURL}/post/list`)
         .then(data => (this.posts = data.data));
     },
     deletePost(id) {
-      axios.delete(`${server.baseURL}/blog/delete?postID=${id}`).then(data => {
+      axios.delete(`${server.baseURL}/post/delete?postID=${id}`).then(data => {
         console.log(data);
         window.location.reload();
       });
